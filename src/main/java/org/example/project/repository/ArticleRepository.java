@@ -1,0 +1,13 @@
+package org.example.project.repository;
+
+import org.example.project.entity.Article;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.ArrayList;
+
+
+public interface ArticleRepository extends JpaRepository<Article, Long> {
+    @Override
+    ArrayList<Article> findAll();  // JPA 기본 메서드
+
+}

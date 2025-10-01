@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 상세</title>
+</head>
+<body>
+<!-- header fragment 불러오기 -->
+<div th:replace="fragments/header :: site-header"></div>
+
+<div class="container mt-5">
+    <h2 th:text="${article.title}">제목</h2>
+    <p class="text-muted" th:text="${article.author}">저자</p>
+    <hr>
+    <p th:text="${article.content}">내용</p>
+
+    <a href="/articles" class="btn btn-secondary">목록으로</a>
+    <a th:href="@{/articles/{id}/edit(id=${article.id})}" class="btn btn-primary">수정</a>
+    <form th:action="@{/articles/{id}/delete(id=${article.id})}" method="post" style="display: inline;">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</button>
+    </form>
+</div>
+<!-- footer fragment 불러오기 -->
+<div th:replace="fragments/footer :: site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 조회</title>
+</head>
+<body>
+<!-- header fragment 불러오기 -->
+<div th:replace="fragments/header :: site-header"></div>
+
+<div class="container">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/articles/new" class="btn btn-primary">글쓰기</a>
+    </div>
+
+    <div th:each="article : ${articleList}" class="card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${article.title}">제목</h5>
+            <p class="card-text" th:text="${article.content}">내용</p>
+            <p class="text-muted" th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}">작성시간</p>
+            <a th:href="@{/articles/{id}(id=${article.id})}" class="btn btn-primary">보기</a>
+        </div>
+    </div>
+</div>
+
+<!-- footer fragment 불러오기 -->
+<div th:replace="fragments/footer :: site-footer"></div>
+</body>
+</html>
