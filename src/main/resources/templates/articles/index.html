@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>메인 페이지</title>
+</head>
+<body>
+<!-- header fragment 불러오기 -->
+<div th:replace="fragments/header :: site-header"></div>
+
+<h1>메인 페이지 내용</h1>
+<p>여기에 페이지별 본문이 들어갑니다.</p>
+
+<!-- footer fragment 불러오기 -->
+<div th:replace="fragments/footer :: site-footer"></div>
+</body>
+</html>
