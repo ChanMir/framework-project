@@ -16,6 +16,7 @@
         <div class="card-body">
             <h5 class="card-title" th:text="${article.title}">제목</h5>
             <p class="card-text" th:text="${article.content}">내용</p>
+            <p class="card-text" th:text="${article.author}">저자</p>
             <p class="text-muted" th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm:ss')}">작성시간</p>
             <a th:href="@{/articles/{id}(id=${article.id})}" class="btn btn-primary">보기</a>
         </div>

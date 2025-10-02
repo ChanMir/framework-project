@@ -10,6 +10,7 @@
 <div class="container mt-5">
     <h2 th:text="${article.title}">제목</h2>
     <p class="text-muted" th:text="${article.author}">저자</p>
+    <p class="text-muted" th:text="${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm')}">작성일</p>
     <hr>
     <p th:text="${article.content}">내용</p>
 
