@@ -28,13 +28,14 @@ public class Article {
 
     protected Article() {} // JPA 기본 생성자
 
-    public Article(Long id , String title, String content, String author) {
+    public Article(Long id , String title, String content, String author, LocalDateTime createdAt) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
-
+        this.createdAt = createdAt;
     }
+
 
 
     @PrePersist

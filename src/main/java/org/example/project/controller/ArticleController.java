@@ -63,6 +63,7 @@ public class ArticleController {
     @GetMapping("/articles/{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
         Article article = articleRepository.findById(id).orElse(null);
+        System.out.println("getpost: " + article.toString());
         model.addAttribute("article", article);
         return "articles/edit";
     }
@@ -71,6 +72,7 @@ public class ArticleController {
     public String update(@PathVariable Long id, ArticleForm form) {
         Article article = form.toEntity();
         article.setId(id);
+        System.out.println("editpost : " + article.toString());
         Article saved = articleRepository.save(article);
         return "redirect:/articles/" + saved.getId();
     }

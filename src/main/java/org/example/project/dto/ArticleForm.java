@@ -13,11 +13,13 @@ public class ArticleForm {
     private String title;
     private String content;
     private String author;
+    private LocalDateTime createdAt;
 
-    public ArticleForm(String title, String content, String author) {
+    public ArticleForm(String title, String content, String author, LocalDateTime createdAt) {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.createdAt = createdAt;
     }
 
     @Override
@@ -30,6 +32,6 @@ public class ArticleForm {
     }
 
     public Article toEntity() {
-        return new Article(null , title, content, author);
+        return new Article(null , title, content, author, createdAt);
     }
 }
